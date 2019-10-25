@@ -1,7 +1,5 @@
 {
-    "presets": [
-        "@babel/preset-react"
-    ],
+    "presets": ["fbjs"],
     "plugins": [
         "@babel/plugin-transform-flow-strip-types",
         "babel-plugin-dev-expression",

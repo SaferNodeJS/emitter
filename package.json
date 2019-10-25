@@ -38,6 +38,7 @@
     "babel-plugin-module-map": "^1.0.1",
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-plugin-module-rewrite": "^0.2.0",
+    "babel-preset-fbjs": "^3.3.0",
     "del": "^2.2.0",
     "eslint": "^6.5.1",
     "eslint-config-google": "^0.14.0",
