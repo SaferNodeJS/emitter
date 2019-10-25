@@ -9,18 +9,18 @@
 
 'use strict';
 
-var babelPluginModules = require('fbjs-scripts/babel/rewrite-modules');
-var babelPluginDEV = require('fbjs-scripts/babel/dev-expression');
+const babelPluginModules = require('babel-plugin-module-rewrite');
+const babelPluginDEV = require('babel-plugin-dev-expression');
 
-var moduleMap = require('fbjs/module-map');
+const moduleMap = require('fbjs/module-map');
 
-var babelOpts = {
+const babelOpts = {
   nonStandard: true,
   blacklist: [
-    'spec.functionName'
+    'spec.functionName',
   ],
   loose: [
-    'es6.classes'
+    'es6.classes',
   ],
   stage: 1,
   plugins: [babelPluginDEV, babelPluginModules],
