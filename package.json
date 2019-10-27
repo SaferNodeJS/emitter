@@ -43,7 +43,7 @@
     "eslint": "^6.5.1",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-react": "^7.16.0",
-    "fbjs-scripts": "^1.2.0",
+    "fbjs-scripts": "^0.8.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-flatten": "^0.2.0",

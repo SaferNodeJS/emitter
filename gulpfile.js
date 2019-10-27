@@ -36,13 +36,14 @@ const paths = {
     '!src/**/__mocks__/**/*.js',
   ],
 };
+const currentVersion=require('./package.json').version;
 
-const buildDist = function (opts) {
+const buildDist = function(opts) {
   const webpackOpts = {
     debug: opts.debug,
     module: {
       loaders: [
-        { test: /\.js$/, loader: 'babel' }
+        {test: /\.js$/, loader: 'babel'},
       ],
     },
     output: {
@@ -55,26 +56,26 @@ const buildDist = function (opts) {
         'process.env.NODE_ENV': JSON.stringify(
           opts.debug ? 'development' : 'production'
         ),
-      })
-    ]
+      }),
+    ],
   };
   if (!opts.debug) {
     webpackOpts.plugins.push(
-      new webpackStream.webpack.optimize.UglifyJsPlugin({
-        compress: {
-          hoist_vars: true,
-          screw_ie8: true,
-          warnings: false
-        }
-      })
+        new webpackStream.webpack.optimize.UglifyJsPlugin({
+          compress: {
+            hoist_vars: true,
+            screw_ie8: true,
+            warnings: false,
+          },
+        })
     );
   }
-  return webpackStream(webpackOpts, null, function (err, stats) {
+  return webpackStream(webpackOpts, null, function(err, stats) {
     if (err) {
       throw new gulpUtil.PluginError('webpack', err);
     }
     if (stats.compilation.errors.length) {
-      gulpUtil.log('webpack', '\n' + stats.toString({ colors: true }));
+      gulpUtil.log('webpack', '\n' + stats.toString({colors: true}));
     }
   });
 };
@@ -85,9 +86,9 @@ function clean() {
 
 function libs() {
   return gulp
-    .src(paths.src)
-    .pipe(flatten())
-    .pipe(gulp.dest(paths.lib));
+      .src(paths.src)
+      .pipe(flatten())
+      .pipe(gulp.dest(paths.lib));
 };
 
 async function distDefault() {
@@ -97,20 +98,20 @@ async function distDefault() {
     library: 'Emitter',
   };
   return gulp.src(paths.entry)
-    .pipe(buildDist(distOpts))
-    .pipe(header(DEVELOPMENT_HEADER, {
-      version: process.env.npm_package_version,
-    }))
-    .pipe(gulp.dest(paths.dist));
+      .pipe(buildDist(distOpts))
+      .pipe(header(DEVELOPMENT_HEADER, {
+        version: currentVersion,
+      }))
+      .pipe(gulp.dest(paths.dist));
 }
 
 const build = gulp.series(
-  clean,
-  libs
+    clean,
+    libs
 );
 
-exports.clean = clean
-exports.libs = libs
+exports.clean = clean;
+exports.libs = libs;
 exports.build = build;
 exports.distDefault = distDefault;
 exports.default = build;
