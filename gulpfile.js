@@ -26,10 +26,7 @@ const PRODUCTION_HEADER = [
 ].join('\n') + '\n';
 
 const paths = {
-  dist: './dist/',
   lib: 'lib',
-  entry: './index.js',
-  entryUtils: './utils.js',
   src: [
     'src/**/*.js',
     '!src/**/__tests__/**/*.js',

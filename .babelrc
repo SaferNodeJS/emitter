@@ -2,9 +2,6 @@
     "presets": ["fbjs"],
     "plugins": [
         "@babel/plugin-transform-flow-strip-types",
-        "babel-plugin-dev-expression",
-        "babel-plugin-module-rewrite",
-        "babel-plugin-module-resolver",
         "babel-plugin-module-map",
         "@babel/transform-react-jsx",
         "@babel/plugin-proposal-export-default-from",
