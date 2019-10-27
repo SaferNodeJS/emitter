@@ -1,11 +1,13 @@
 {
-    "presets": ["fbjs"],
+    "presets": [
+        "fbjs"
+    ],
     "plugins": [
         "@babel/plugin-transform-flow-strip-types",
         "babel-plugin-module-map",
         "@babel/transform-react-jsx",
         "@babel/plugin-proposal-export-default-from",
-        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-class-properties"
     ],
     "parserOpts": {
         "plugins": [
