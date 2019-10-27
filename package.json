@@ -24,7 +24,8 @@
   "dependencies": {
     "audit": "0.0.6",
     "fbjs": "^0.8.4",
-    "fix": "0.0.6"
+    "fix": "0.0.6",
+    "uglifyjs-webpack-plugin": "^2.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
